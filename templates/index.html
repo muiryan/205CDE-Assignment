@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<title>RM Cameras</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--CSS-->
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  	<link rel="stylesheet" href="/static/css/mystyle.css">
+	  	<!--/CSS-->
+
+	</head>
+
+	<body>
+		
+		<!--Navbar-->
+		<nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #000000">
+			<div class="logo">
+			<div class="mx-auto order-0">
+		        <a class="navbar-brand mx-auto" href="#" onclick="openNav()" style="color:#ffffff">RM</a>
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+				        <span class="navbar-toggler-icon">
+		            	<span class="icon-bar"></span>
+		            	<span class="icon-bar"></span>
+		            	<span class="icon-bar"></span>
+		            </span>
+		        </button>
+		    </div>
+		    </div>
+
+		    <!--Sidenav-->
+		    <div id="Sidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="index">HOME</a>
+				<a href="#products">PRODUCTS</a>
+				<a href="#aboutus">ABOUT US</a>
+				<a href="#contactus">CONTACT US</a>
+				{% if session.logged_in %}
+				<a href="logout">LOGOUT</a>
+				{% else %}
+				<a href="signup">SIGN UP</a>
+				<a href="login">LOGIN</a>
+				{% endif %}
+			</div>
+		    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+		        <ul class="navbar-nav mr-auto">
+		            <li class="nav-item">
+		                <a class="nav-link" href="index" style="color:#ffffff">Home</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="#products" style="color:#ffffff">Products</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="#aboutus" style="color:#ffffff">About Us</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="#contactus" style="color:#ffffff">Contact Us</a>
+		            </li>
+		            <div class="nav-item dropdown">
+					  <a class="nav-link" data-toggle="dropdown" style="color: #ffffff">List of Products</a>
+					  <ul class="dropdown-menu">
+					    <li><a href="#fullframe" style="color: #ffffff">Full-frame</a></li>
+					    <li><a href="#apsc" style="color: #ffffff">APS-C</a></li>
+					    <li><a href="#m43" style="color: #ffffff">M43</a></li>
+					  </ul>
+					</div>
+		        </ul>
+		    </div>
+		    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+		        <ul class="navbar-nav ml-auto">
+		        	{% if session.logged_in %}
+		        	<li class="nav-item">
+		                <a class="nav-link" href="logout" style="color:#ffffff">Logout</a>
+		            </li>
+		            {% else %}
+		            <li class="nav-item">
+		                <a class="nav-link" href="signup" style="color:#ffffff">Sign up</a>
+		            </li>
+		            <li class="nav-item">
+		                <a class="nav-link" href="login" style="color:#ffffff">Login</a>
+		            </li>
+		            {% endif %}
+		        </ul>
+		    </div>
+		    <!--/Sidenav-->
+
+		</nav>
+		<!--/Navbar-->
+
+	<!--Carousel-->
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	      <img class="d-block w-100" src="/static/img/c1.jpg" alt="First slide" style="width:1920px; height:700px;">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100" src="/static/img/c2.jpg" alt="Second slide" style="width:1920px; height:700px;">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100" src="/static/img/c3.jpg" alt="Third slide" style="width:1920px; height:700px;">
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+	<!--/Carousel-->
+
+	<!--Welcome-->
+	<section class="jumbotron text-center">
+	    <div class="container">
+	      <h1 class="jumbotron-heading">Welcome to RM Cameras! {{session.username}}</h1>
+	      <p class="lead text-muted">Here, we sell all kinds of cameras.</p>
+	    </div>
+  	</section>
+  	<!--/Welcome-->
+
+	<!--Products-->
+	<div class="jumbotron" id="products" style="background-color: #ff8c00">
+		<h1>Products</h1>
+	</div>
+
+	<div id="fullframe">
+		<hr></hr>
+		<h1>Full-frame</h1>
+		<hr></hr>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a7riii.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a7riii</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a9.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a9</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a7iii.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a7iii</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/eosr.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon EOS R</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/5div.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon 5D mark iv</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/6dii.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon 6D mark ii</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/z7.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Nikon Z7</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/z6.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Nikon Z6</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/d850.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Nikon D850</h3>
+					<p>Full-frame</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="apsc">
+		<hr></hr>
+		<h1>APSC</h1>
+		<hr></hr>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a6000.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a6000</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a6400.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a6400</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/a6500.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Sony a6500</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/m100.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon EOS M100</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/m50.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon EOS M50</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/80d.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Canon EOS 80d</h3>
+					<p>APS-C</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="m43">
+		<hr></hr>
+		<h1>M43</h1>
+		<hr></hr>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/gh5.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Panasonic GH5</h3>
+					<p>M43</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/em10ii.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Olympus OM-D E-M1 Mark ii</h3>
+					<p>M43</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/gx9.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<button class="btn btn-success">Add to Cart</button>
+					<h3>Panasonic GX9</h3>
+					<p>M43</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!--/Products-->
+
+	<!--About Us-->
+	<div class="jumbotron" id="aboutus" style="background-color: #ff8c00">
+		<h1>About Us</h1>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s1.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>CEO</h3>
+					<p>Robbert Mo</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s2.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>Photographer</h3>
+					<p>Amir Atkins</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s3.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>Videographer</h3>
+					<p>Malik Curry</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s4.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>Photographer</h3>
+					<p>Penny Webster</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s5.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>Sales</h3>
+					<p>Lilly Knapp</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="/static/img/s6.jpg" style="width:250px; height:250px;">
+				<div class="caption">
+					<h3>Camera Technician</h3>
+					<p>Russell Ferrell</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--/About Us-->
+
+	<!--Contact Us-->
+	<div class="jumbotron" id="contactus" style="background-color: #ff8c00">
+		<h1>Contact Us</h1>
+	</div>
+	<section class="jumbotron">
+	    <div class="container">
+	      <p>If you have any questions about photography, feel free to contact us, we have professional photographers, videographers and camera technicians here to answer your questions. We will analysis which camera suits you the best, we understand your needs and we will provide the best service. Do not hesitate to contact us.</p>
+	      <h3>Address</h3>
+	      <p>3/F
+			<br>
+			17 Yim Sai Choi Street North
+			<br>
+			Mong Kok
+			<br>
+			Kowloon
+			<br>
+			Hong Kong
+			<br>
+			Opening Hour: Everyday 10AM-10PM</p>
+	    </div>
+  	</section>
+	<!--/Contact Us-->
+
+	<!--Footer-->
+	<div class="footer" style="background-color: #000000;">
+	<footer class="page-footer py-4">
+	  <div class="row">
+	    <div class="col-12 col-md">
+	      <small class="d-block mb-3 footerlinks">&copy; 2019</small>
+	    </div>
+	    <div class="col-6 col-md">
+	      <h3 style="color: #ffffff">Products</h3>
+	      <ul class="list-unstyled text-small">
+	        <li><a class="footerlinks" href="#products">Back to products</a></li>
+	      </ul>
+	    </div>
+	    <div class="col-6 col-md">
+	      <h3 style="color: #ffffff">About Us</h3>
+	      <ul class="list-unstyled text-small">
+	        <li><a class="footerlinks" href="#aboutus">Back to about us</a></li>
+	      </ul>
+	    </div>
+	    <div class="col-6 col-md">
+	      <h3 style="color: #ffffff">Contact Us</h3>
+	      <ul class="list-unstyled text-small">
+	        <li><a class="footerlinks" style="color: #ffffff">Email: rmcameras@gmail.com</a></li>
+	        <li><a class="footerlinks" style="color: #ffffff">Phone number: +852 2468 1357</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	</footer>
+	<!--/Footer-->
+
+	<!--JS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="/static/js/sidebar.js"></script>
+	<!--/JS-->
+
+	</body>
+
+</html>

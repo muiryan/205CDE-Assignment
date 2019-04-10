@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block body %}
+			{% include 'messages.html' %}
+		<title>Online Shop</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  	<link rel="stylesheet" href="/static/css/mystyle.css">
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	  	<script src="/static/js/sidebar.js"></script>
+	</head>
+	<body style="background-color: #000000">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+	        <div class="card card-signin my-5">
+	          <div class="card-body">
+	            <h5 class="card-title text-center">Login</h5>
+	            <form action="/login" method="post">
+	            <form class="form-signin">
+	              <div class="form-label-group">
+	                <input type="email" id="username" class="form-control" placeholder="Email" name="username" required autofocus>
+	                <label for="username">Username</label>
+	              </div>
+	              <div class="form-label-group">
+	                <input type="password" id="pwd" class="form-control" placeholder="Password" name="password" required>
+	                <label for="pwd">Password</label>
+	              </div>
+	              <button class="btn btn-lg btn-warning btn-block text-uppercase" type="submit" style="background-color: #ff8c00">login</button>
+	    {% endblock %}
+	</body>
+</html>
